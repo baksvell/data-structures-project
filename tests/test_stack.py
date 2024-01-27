@@ -25,3 +25,23 @@ def test_stack_push():
     stack.push(20)
     assert stack.top.data == 20
     assert stack.top.next_node.data == 10
+
+    def test_pop():
+        stack = Stack()
+        stack.push(10)
+        data = stack.pop()
+        assert stack.top is None
+        assert data == 10
+
+        stack = Stack()
+        stack.push(20)
+        stack.push(30)
+        data = stack.pop()
+        assert stack.top.data == 20
+        assert data == 30
+
+    def test_pop_empty_stack():
+        stack = Stack()
+        data = stack.pop()
+        assert data is None
+        assert stack.top is None
